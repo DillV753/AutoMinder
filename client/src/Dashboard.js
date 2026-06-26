@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Dashboard() {
   const vehicles = [
     { id: 1, make: "Toyota", model: "Camry", year: 2021 },
@@ -7,10 +9,13 @@ function Dashboard() {
   return (
     <div style={{ padding: '40px' }}>
       <h2>My Vehicles</h2>
+      <Link to="/add-vehicle"><button>+ Add Vehicle</button></Link>
       {vehicles.map((vehicle) => (
-        <div key={vehicle.id} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '10px', maxWidth: '300px' }}>
-          <h3>{vehicle.year} {vehicle.make} {vehicle.model}</h3>
-        </div>
+        <Link key={vehicle.id} to={`/vehicle/${vehicle.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '10px', maxWidth: '300px' }}>
+            <h3>{vehicle.year} {vehicle.make} {vehicle.model}</h3>
+          </div>
+        </Link>
       ))}
     </div>
   );
