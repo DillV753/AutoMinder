@@ -1,24 +1,18 @@
-/*import './App.css';
-import Login from './Login';
-
-function App() {
-  return (
-    <div className="App">
-      <Login />
-    </div>
-  );
-}
-
-export default App;*/
-
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './Login';
 import SignUp from './SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <SignUp />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

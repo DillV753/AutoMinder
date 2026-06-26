@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function SignUp() {
   return (
     <div style={{
@@ -13,6 +15,9 @@ function SignUp() {
       <input type="email" placeholder="Email" style={{ marginBottom: '10px' }} />
       <input type="password" placeholder="Password" style={{ marginBottom: '10px' }} />
       <button>Create Account</button>
+      <p style={{ marginTop: '10px' }}>
+        Already have an account? <Link to="/">Log In</Link>
+      </p>
     </div>
   );
 }
