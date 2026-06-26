@@ -13,7 +13,7 @@ function Login() {
       <h2>Login to AutoMinder</h2>
       <input type="email" placeholder="Email" style={{ marginBottom: '10px' }} />
       <input type="password" placeholder="Password" style={{ marginBottom: '10px' }} />
-      <button>Log In</button>
+      <Link to="/dashboard"><button>Log In</button></Link>
       <p style={{ marginTop: '10px' }}>
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </p>
