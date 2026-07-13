@@ -79,7 +79,20 @@ app.post('/api/maintenance', (req, res) => {
     res.json({ message: 'Maintenance record added!', recordId: result.insertId });
   });
 }); 
- 
+
+app.get('/api/maintenance/:vehicleId', (req, res) => {
+  const { vehicleId } = req.params;
+
+  const sql = 'SELECT * FROM maintenance_records WHERE vehicle_id = ?';
+  db.query(sql, [vehicleId], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Something went wrong' });
+    }
+    res.json(results);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
