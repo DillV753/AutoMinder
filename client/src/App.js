@@ -28,7 +28,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-vehicle" element={<AddVehicle />} />
           <Route path="/vehicle/:id" element={<VehicleDetail />} />
-          <Route path="/add-maintenance" element={<AddMaintenance />} />
+          <Route path="/add-maintenance/:vehicleId" element={<AddMaintenance />} />
         </Routes>
       </div>
     </BrowserRouter>

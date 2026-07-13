@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function VehicleDetail() {
+  const { id: vehicleId } = useParams();
+
   const maintenanceHistory = [
     { id: 1, type: "Oil Change", date: "2026-03-15", mileage: 32000 },
     { id: 2, type: "Tire Rotation", date: "2026-01-10", mileage: 30000 },
@@ -8,8 +10,8 @@ function VehicleDetail() {
 
   return (
     <div style={{ padding: '40px' }}>
-      <h2>2021 Toyota Camry</h2>
-      <Link to="/add-maintenance"><button>+ Add Maintenance Record</button></Link>
+      <h2>Vehicle Detail</h2>
+      <Link to={`/add-maintenance/${vehicleId}`}><button>+ Add Maintenance Record</button></Link>
       <h3>Maintenance History</h3>
       {maintenanceHistory.map((record) => (
         <div key={record.id} style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '10px', maxWidth: '300px' }}>

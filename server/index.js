@@ -67,6 +67,19 @@ app.get('/api/vehicles/:userId', (req, res) => {
   });
 });
 
+app.post('/api/maintenance', (req, res) => {
+  const { vehicleId, type, date, mileage } = req.body;
+
+  const sql = 'INSERT INTO maintenance_records (vehicle_id, type, date, mileage) VALUES (?, ?, ?, ?)';
+  db.query(sql, [vehicleId, type, date, mileage], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Something went wrong' });
+    }
+    res.json({ message: 'Maintenance record added!', recordId: result.insertId });
+  });
+}); 
+ 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
